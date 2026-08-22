@@ -1,0 +1,5 @@
+const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:4000/api';
+export type Role = 'employee' | 'hr';
+export type User = { id: string; name: string; employeeId: string; email: string; role: Role; status: 'active' | 'inactive' | 'suspended' };
+async function request<T>(path: string, options?: RequestInit): Promise<T> { const response = await fetch(`${API_URL}${path}`, { ...options, credentials: 'include', headers: { 'Content-Type': 'application/json', ...options?.headers } }); const body = response.status === 204 ? null : await response.json(); if (!response.ok) throw new Error(body?.error ?? 'Something went wrong.'); return body as T; }
+export const authService = { me: () => request<{ user: User }>('/auth/me'), login: (email: string, password: string) => request<{ user: User }>('/auth/login', { method: 'POST', body: JSON.stringify({ email, password }) }), register: (input: { name: string; employeeId: string; email: string; password: string; role: Role }) => request<{ user: User }>('/auth/register', { method: 'POST', body: JSON.stringify(input) }), logout: () => request<void>('/auth/logout', { method: 'POST' }) };

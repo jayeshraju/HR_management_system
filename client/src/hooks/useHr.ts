@@ -1,0 +1,13 @@
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { hrService } from '../services/hr';
+export function useHrDashboard() { return useQuery({ queryKey: ['hr-dashboard'], queryFn: hrService.dashboard }); }
+export function useEmployees(query = '') { return useQuery({ queryKey: ['hr-employees', query], queryFn: () => hrService.employees(query) }); }
+export function useEmployee(id: string) { return useQuery({ queryKey: ['hr-employee', id], queryFn: () => hrService.employee(id), enabled: Boolean(id) }); }
+export function useHrPayroll(employeeId = '') { return useQuery({ queryKey: ['hr-payroll', employeeId], queryFn: () => hrService.payroll(employeeId) }); }
+export function useEmployeeStatus() { return useQuery({ queryKey: ['hr-employee-status'], queryFn: hrService.employeeStatus, refetchInterval: 60000 }); }
+export function useHrAttendance(query = '') { return useQuery({ queryKey: ['hr-attendance', query], queryFn: () => hrService.hrAttendance(query) }); }
+export function useHrLeave(query = '') { return useQuery({ queryKey: ['hr-leave', query], queryFn: () => hrService.leaveRequests(query) }); }
+export function usePayrollMutation() { const client = useQueryClient(); return useMutation({ mutationFn: ({ employeeId, data }: { employeeId: string; data: unknown }) => hrService.updatePayroll(employeeId, data), onSuccess: () => { void client.invalidateQueries({ queryKey: ['hr-payroll'] }); window.dispatchEvent(new CustomEvent('dayflow:toast', { detail: 'Payroll updated and audit logged.' })); } }); }
+export function useSalaryInfoMutation() { const client = useQueryClient(); return useMutation({ mutationFn: ({ employeeId, data }: { employeeId: string; data: unknown }) => hrService.updateSalaryInfo(employeeId, data), onSuccess: () => { void client.invalidateQueries({ queryKey: ['hr-payroll'] }); void client.invalidateQueries({ queryKey: ['hr-employee'] }); window.dispatchEvent(new CustomEvent('dayflow:toast', { detail: 'Salary info saved.' })); } }); }
+export function useEmployeeMutationHr() { const client = useQueryClient(); return useMutation({ mutationFn: ({ id, data }: { id: string; data: unknown }) => hrService.updateEmployee(id, data), onSuccess: () => { void client.invalidateQueries({ queryKey: ['hr-employees'] }); window.dispatchEvent(new CustomEvent('dayflow:toast', { detail: 'Employee updated.' })); } }); }
+export function useLeaveMutationHr() { const client = useQueryClient(); return useMutation({ mutationFn: ({ id, data }: { id: string; data: unknown }) => hrService.decideLeave(id, data), onSuccess: () => { void client.invalidateQueries({ queryKey: ['hr-leave'] }); window.dispatchEvent(new CustomEvent('dayflow:toast', { detail: 'Leave decision saved.' })); } }); }

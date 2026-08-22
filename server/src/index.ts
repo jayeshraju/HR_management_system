@@ -1,0 +1,14 @@
+import express from 'express';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
+import { env } from './config/env.js';
+import { connectDatabase } from './config/database.js';
+import { apiRoutes } from './routes/index.js';
+import { errorHandler } from './middleware/errorHandler.js';
+const app = express();
+const allowedOrigin = (origin: string | undefined) => !origin || origin === env.CLIENT_URL || (env.NODE_ENV !== 'production' && /^https?:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin));
+app.use(helmet()); app.use(cors({ origin: (origin, callback) => allowedOrigin(origin) ? callback(null, true) : callback(new Error('Origin not allowed')), credentials: true })); app.use(express.json({ limit: '1mb' })); app.use(cookieParser());
+app.use('/api', rateLimit({ windowMs: 15 * 60 * 1000, limit: 300, standardHeaders: 'draft-7', legacyHeaders: false })); app.use('/api/auth', rateLimit({ windowMs: 15 * 60 * 1000, limit: 30, standardHeaders: 'draft-7', legacyHeaders: false })); app.use('/api', apiRoutes); app.use(errorHandler);
+connectDatabase().then(() => app.listen(env.PORT, () => console.log(`Dayflow API listening on ${env.PORT}`))).catch((error) => { console.error('Database connection failed', error); process.exit(1); });

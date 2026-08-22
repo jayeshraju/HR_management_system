@@ -1,0 +1,5 @@
+/* Attendance-specific styles are largely in employee.css and hr.css */
+/* This file kept for legacy imports */
+.operations-filters { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; align-items: end; }
+.operations-filters input { flex: 1; min-width: 140px; border: 1px solid #d9e4df; border-radius: 6px; padding: 10px 12px; font: 500 12px inherit; background: #fff; color: #17212b; }
+.dark .operations-filters input { background: #1c2a28; color: #edf6f1; border-color: #385047; }

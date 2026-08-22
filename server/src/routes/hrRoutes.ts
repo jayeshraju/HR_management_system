@@ -1,0 +1,15 @@
+import { Router } from 'express';
+import { requireAuth, requireRole } from '../middleware/auth.js';
+import { asyncHandler } from '../utils/asyncHandler.js';
+import { dashboard, getEmployee, listEmployees, updateEmployee } from '../controllers/hrController.js';
+import { listPayroll, updatePayroll, updateSalaryInfo, getEmployeeStatus } from '../controllers/hrPayrollController.js';
+export const hrRoutes = Router();
+hrRoutes.use(requireAuth, requireRole('hr'));
+hrRoutes.get('/dashboard', asyncHandler(dashboard));
+hrRoutes.get('/employees', asyncHandler(listEmployees));
+hrRoutes.get('/employees/:id', asyncHandler(getEmployee));
+hrRoutes.patch('/employees/:id', asyncHandler(updateEmployee));
+hrRoutes.get('/payroll', asyncHandler(listPayroll));
+hrRoutes.patch('/payroll/:employeeId', asyncHandler(updatePayroll));
+hrRoutes.put('/payroll/:employeeId/salary-info', asyncHandler(updateSalaryInfo));
+hrRoutes.get('/employee-status', asyncHandler(getEmployeeStatus));

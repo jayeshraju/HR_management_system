@@ -1,0 +1,3 @@
+const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:4000/api';
+export async function fetchIntelligence<T>(path: string, options?: RequestInit): Promise<T> { const response = await fetch(`${API_URL}${path}`, { ...options, credentials: 'include', headers: { 'Content-Type': 'application/json', ...options?.headers } }); const body = await response.json(); if (!response.ok) throw new Error(body?.error ?? 'Unable to load Dayflow Intelligence.'); return body as T; }
+export const intelligenceService = { analytics: () => fetchIntelligence<any>('/analytics'), ask: (question: string) => fetchIntelligence<any>('/assistant/ask', { method: 'POST', body: JSON.stringify({ question }) }) };

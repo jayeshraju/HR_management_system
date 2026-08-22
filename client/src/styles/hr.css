@@ -1,0 +1,124 @@
+/* ── KPI Grid ──────────────────────────────────── */
+.kpi-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 18px; }
+.kpi-card { padding: 16px; }
+.kpi-card span, .kpi-card small { display: block; color: #82908a; font-size: 10px; }
+.kpi-card strong { display: block; font: 800 25px Manrope; margin: 10px 0 4px; }
+
+/* ── Employee Card Grid ────────────────────────── */
+.emp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 4px; }
+.emp-card {
+  background: #fff; border: 1px solid #e3ebe7; border-radius: 12px;
+  padding: 22px 18px; cursor: pointer;
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+}
+.emp-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px #13271c14; border-color: #b5d9c7; }
+.dark .emp-card { background: #1c2a28; border-color: #2b403a; }
+.dark .emp-card:hover { border-color: #4eaa80; }
+.emp-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+.emp-avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #d8f3e8, #b5e8cf); color: #1b6048; font: 800 18px Manrope; display: grid; place-items: center; }
+.emp-dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid #fff; margin-top: 6px; }
+.dark .emp-dot { border-color: #1c2a28; }
+.emp-dot.present { background: #3db87a; }
+.emp-dot.on-leave { background: #f0b429; }
+.emp-dot.absent { background: #dee2e6; }
+.emp-card h3 { font: 700 15px Manrope; margin: 0 0 4px; color: #17212b; }
+.dark .emp-card h3 { color: #edf6f1; }
+.emp-role { display: block; font-size: 12px; color: #82908a; margin-bottom: 3px; }
+.emp-id { display: block; font-size: 10px; color: #aab5af; font-weight: 600; letter-spacing: .04em; }
+.emp-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; padding-top: 12px; border-top: 1px solid #f0f5f2; }
+.dark .emp-card-footer { border-color: #2b403a; }
+.emp-arrow { color: #82908a; }
+.emp-card:hover .emp-arrow { color: #1e6b50; }
+
+/* ── Search Field ──────────────────────────────── */
+.directory-toolbar { display: flex; gap: 10px; margin-bottom: 18px; }
+.search-field { display: flex; align-items: center; gap: 8px; flex: 1; background: #fff; border: 1px solid #d9e4df; border-radius: 8px; padding: 10px 14px; }
+.search-field input { border: none; background: transparent; font: 500 13px inherit; color: #17212b; flex: 1; outline: none; }
+.dark .search-field { background: #1c2a28; border-color: #385047; }
+.dark .search-field input { color: #edf6f1; }
+.search-field svg { color: #82908a; flex: none; }
+
+/* ── Directory toolbar inputs ──────────────────── */
+.directory-toolbar input, .directory-toolbar select,
+.edit-form input, .payroll-form input, .payroll-toolbar input { border: 1px solid #d9e4df; border-radius: 6px; padding: 11px; background: #fff; color: #17212b; font: 500 12px inherit; }
+.dark .directory-toolbar input, .dark .directory-toolbar select,
+.dark .edit-form input, .dark .payroll-form input { background: #1c2a28; color: #edf6f1; border-color: #385047; }
+
+/* ── Employee Detail ───────────────────────────── */
+.employee-detail { display: grid; grid-template-columns: 1fr 1.3fr; gap: 15px; }
+.detail-stack { display: grid; gap: 10px; }
+.detail-stack span { display: flex; justify-content: space-between; color: #82908a; font-size: 12px; }
+.detail-stack b { color: #33423a; }
+.edit-form, .payroll-form { display: grid; gap: 12px; }
+.edit-form label, .payroll-form label { display: grid; gap: 6px; color: #66736d; font-size: 11px; font-weight: 700; }
+.payroll-toolbar { display: flex; justify-content: space-between; align-items: end; margin-bottom: 15px; }
+
+/* ── Salary Info ───────────────────────────────── */
+.salary-info-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 16px; }
+.salary-form { display: grid; gap: 14px; }
+.salary-form h2 { font: 700 18px Manrope; margin: 0 0 4px; }
+.salary-form label { display: grid; gap: 6px; font-size: 12px; font-weight: 700; color: #66736d; }
+.salary-form input { padding: 10px 12px; border: 1px solid #d9e4df; border-radius: 6px; font: 500 13px inherit; background: #fff; color: #17212b; }
+.dark .salary-form input { background: #243631; color: #edf6f1; border-color: #385047; }
+.salary-breakdown h2 { font: 700 18px Manrope; margin: 0 0 18px; }
+.salary-section-title { font: 600 10px inherit; text-transform: uppercase; letter-spacing: .08em; color: #82908a; margin: 14px 0 8px; }
+.salary-section-title.deduction { color: #b34a36; }
+.salary-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f0f5f2; font-size: 12px; }
+.dark .salary-row { border-color: #2b403a; }
+.salary-row span { color: #82908a; }
+.salary-row b { font-weight: 700; color: #33423a; }
+.dark .salary-row b { color: #c2d5cc; }
+.salary-row.total, .salary-row.net { border-top: 2px solid #e3ebe7; margin-top: 4px; padding-top: 12px; border-bottom: none; }
+.salary-row.total span, .salary-row.total b { font-weight: 700; color: #17212b; }
+.salary-row.net span, .salary-row.net b { font-weight: 800; color: #1e6b50; font-size: 14px; }
+.dark .salary-row.total span, .dark .salary-row.total b { color: #edf6f1; }
+
+/* ── Analytics / Charts ────────────────────────── */
+.chart-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 15px; }
+.chart-panel { min-height: 330px; }
+.insight-list { display: grid; gap: 12px; }
+.insight-card { border-left: 3px solid #4eaa80; padding-left: 14px; }
+.insight-card b { display: block; font: 700 14px Manrope; margin-bottom: 5px; }
+.insight-card span { display: block; color: #82908a; font-size: 12px; line-height: 1.5; }
+
+/* ── Assistant ─────────────────────────────────── */
+.assistant { max-width: 780px; }
+.chat-window { min-height: 420px; display: flex; flex-direction: column; gap: 13px; margin-bottom: 15px; }
+.chat-message { max-width: 78%; padding: 13px 15px; border-radius: 9px; background: #eef6f1; color: #33423a; font-size: 13px; line-height: 1.55; }
+.chat-message.user { align-self: end; background: #1e6b50; color: #f0fbf5; }
+.chat-message small { display: block; color: #82908a; font-size: 10px; margin-top: 8px; }
+.chat-message.user small { color: #b9dfcd; }
+.suggestions { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 15px; }
+.suggestions button { border: 1px solid #c9ded3; background: #fff; color: #287653; border-radius: 20px; padding: 8px 11px; font: 600 11px inherit; cursor: pointer; }
+.assistant-form { display: flex; gap: 9px; }
+.assistant-form input { flex: 1; border: 1px solid #d9e4df; border-radius: 6px; padding: 11px; background: #fff; color: #17212b; font: 500 12px inherit; }
+.source-tag { color: #779285; font-size: 10px; margin-top: 10px; }
+
+/* ── Approve/Reject buttons ────────────────────── */
+.approve-actions { display: flex; gap: 6px; }
+.approve-btn, .reject-btn { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 7px; border: none; cursor: pointer; font-weight: 700; }
+.approve-btn { background: #e2f6eb; color: #2b805a; }
+.approve-btn:hover { background: #c4efd6; }
+.reject-btn { background: #ffebe7; color: #b74d3b; }
+.reject-btn:hover { background: #ffd4cc; }
+
+/* ── Dark ──────────────────────────────────────── */
+.dark .directory-toolbar input, .dark .search-field { background: #1c2a28; border-color: #2b403a; }
+.dark .attention-item, .dark .detail-stack b, .dark .chat-message { color: #d8e8e0; }
+.dark .suggestions button { background: #1c2a28; border-color: #385047; }
+.dark .assistant-form input { background: #1c2a28; color: #edf6f1; border-color: #385047; }
+.dark .salary-breakdown { background: #1c2a28; border-color: #2b403a; }
+
+/* ── Responsive ────────────────────────────────── */
+@media (max-width: 1200px) { .emp-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .emp-grid { grid-template-columns: repeat(2, 1fr); }
+  .salary-info-grid, .chart-grid, .employee-detail { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .emp-grid { grid-template-columns: 1fr 1fr; }
+  .payroll-toolbar, .directory-toolbar { flex-direction: column; }
+  .assistant-form { flex-direction: column; }
+}

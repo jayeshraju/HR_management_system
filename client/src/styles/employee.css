@@ -1,0 +1,207 @@
+/* ── Page Heading ──────────────────────────────── */
+.page-heading { margin-bottom: 28px; }
+.page-heading h1 { font: 800 34px Manrope; margin: 9px 0 7px; }
+.page-heading p { color: #82908a; font-size: 14px; margin: 0 0 19px; }
+
+/* ── Data States ───────────────────────────────── */
+.data-state { min-height: 320px; display: grid; place-items: center; align-content: center; gap: 10px; color: #82908a; font-size: 13px; text-align: center; }
+.error-state { color: #b34a36; }
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Status Badges ─────────────────────────────── */
+.status { display: inline-flex; padding: 4px 9px; border-radius: 20px; font-size: 10px; font-weight: 700; }
+.status.pending { background: #fff5d9; color: #967019; }
+.status.approved, .status.present, .status.active { background: #e2f6eb; color: #2b805a; }
+.status.rejected, .status.suspended { background: #ffebe7; color: #b74d3b; }
+.status.halfday { background: #edf2fe; color: #3b5bdb; }
+.status.leave { background: #fff0f6; color: #c2255c; }
+.status.inactive { background: #f1f3f5; color: #868e96; }
+
+/* ── Dashboard ─────────────────────────────────── */
+.welcome { display: flex; justify-content: space-between; align-items: end; margin-bottom: 38px; }
+.welcome h1 { font: 800 clamp(27px,3vw,40px) Manrope; margin: 9px 0 7px; letter-spacing: -.02em; }
+.welcome p { color: #82908a; margin: 0; font-size: 14px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .08em; font-size: 10px; color: #84918b; font-weight: 700; }
+.metric-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 16px; }
+.metric-grid article { background: #fff; border: 1px solid #e1ebe6; border-radius: 9px; padding: 18px; }
+.metric-grid span, .metric-grid small { display: block; color: #84908a; font-size: 12px; }
+.metric-grid strong { display: block; font: 800 26px Manrope; margin: 10px 0 5px; }
+.metric-grid strong small { display: inline; font: 600 13px inherit; }
+.dashboard-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 15px; margin-bottom: 16px; }
+.panel-heading { display: flex; align-items: start; justify-content: space-between; }
+.panel h2 { font: 700 18px Manrope; margin: 8px 0 0; }
+.event { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid #edf1ef; padding: 17px 0; font-size: 12px; }
+.event:first-of-type { margin-top: 12px; }
+.event:last-child { border: 0; }
+.event span { color: #8a9690; text-align: right; }
+.quick-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+.quick-actions a, .document-link { display: flex; align-items: center; gap: 8px; padding: 13px; color: #23694f; background: #eef8f3; border-radius: 7px; text-decoration: none; font-size: 12px; font-weight: 700; }
+.quick-actions a:hover, .document-link:hover { background: #dff2e8; }
+.text-link { color: #297653; font-size: 12px; font-weight: 700; text-decoration: none; }
+.back-link { display: inline-flex; align-items: center; gap: 4px; margin-bottom: 12px; }
+.activity-panel { margin-top: 15px; }
+.activity-row { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #edf1ef; padding: 15px 0; font-size: 13px; }
+.activity-row div { display: grid; gap: 4px; }
+.activity-row small { color: #89958f; font-size: 11px; }
+.empty-copy { color: #96a09b; font-size: 12px; padding: 18px 0; }
+
+/* ── Profile Top Card ──────────────────────────── */
+.profile-top-card { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
+.profile-avatar-lg { display: grid; place-items: center; width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #ffd6c7, #ffb8a0); color: #87422d; font: 800 24px Manrope; flex: none; }
+.profile-top-info { flex: 1; }
+.profile-top-info h2 { font: 800 24px Manrope; margin: 0 0 4px; }
+.profile-top-info > span { color: #82908a; font-size: 13px; }
+.profile-meta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; align-items: center; }
+.profile-meta-row span { font-size: 12px; color: #82908a; display: flex; align-items: center; gap: 4px; }
+.inline-edit-form { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.inline-edit-form input { padding: 8px 11px; border: 1px solid #d9e4df; border-radius: 6px; font: 500 12px inherit; background: #fff; min-width: 130px; }
+.dark .inline-edit-form input { background: #1c2a28; color: #edf6f1; border-color: #385047; }
+
+/* ── Bio Grid ──────────────────────────────────── */
+.bio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 18px; }
+.bio-card h3 { font: 700 14px Manrope; margin: 0 0 10px; color: #2d4a3e; }
+.dark .bio-card h3 { color: #bfead6; }
+.editable-field { position: relative; }
+.editable-field p { font-size: 13px; line-height: 1.6; color: #46534d; margin: 0; min-height: 40px; }
+.dark .editable-field p { color: #c2d5cc; }
+.edit-pencil { position: absolute; top: 0; right: 0; border: none; background: #f1f7f4; color: #5a7a6d; border-radius: 5px; padding: 4px 6px; cursor: pointer; opacity: 0; transition: opacity .15s; display: flex; }
+.editable-field:hover .edit-pencil { opacity: 1; }
+.editable-field.editing input, .editable-field.editing textarea { width: 100%; padding: 9px 11px; border: 1px solid #4eaa80; border-radius: 6px; font: 500 13px inherit; background: #fff; resize: vertical; }
+.dark .editable-field.editing input, .dark .editable-field.editing textarea { background: #1c2a28; color: #edf6f1; border-color: #4eaa80; }
+.edit-actions { display: flex; gap: 6px; margin-top: 8px; }
+button.sm { padding: 6px 10px !important; font-size: 11px !important; }
+
+/* ── Skills / Tags ─────────────────────────────── */
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; align-items: center; }
+.tag { display: inline-flex; align-items: center; gap: 5px; background: #e6f5ee; color: #1b6048; border-radius: 20px; padding: 5px 10px; font: 600 12px inherit; }
+.tag button { background: none; border: none; color: #1b6048; cursor: pointer; display: flex; padding: 0; }
+.dark .tag { background: #284c3f; color: #bfead6; }
+.tag-input { display: flex; align-items: center; gap: 6px; }
+.tag-input input { border: 1px dashed #c9d9d1; border-radius: 20px; padding: 5px 12px; font: 500 12px inherit; background: transparent; color: #46534d; outline: none; }
+.tag-input input:focus { border-color: #4eaa80; }
+.add-tag-btn { background: #1e6b50; color: #fff; border: none; border-radius: 50%; width: 22px; height: 22px; display: grid; place-items: center; cursor: pointer; }
+
+/* ── Profile Tabs ──────────────────────────────── */
+.profile-tabs { display: flex; gap: 6px; margin-bottom: 18px; border-bottom: 2px solid #e3ebe7; padding-bottom: 0; }
+.dark .profile-tabs { border-color: #2b403a; }
+.profile-tabs button { background: none; border: none; padding: 10px 18px; font: 600 13px inherit; color: #82908a; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; display: flex; align-items: center; gap: 6px; transition: color .15s; }
+.profile-tabs button:hover { color: #2d5e47; }
+.profile-tabs button.active { color: #1e6b50; border-bottom-color: #1e6b50; }
+.tab-content { animation: fadeIn .2s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── Info Grid ─────────────────────────────────── */
+.info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 5px; }
+.info-panel { display: grid; grid-template-columns: 1fr auto; gap: 12px; }
+.info-panel h2 { grid-column: 1/-1; font: 700 16px Manrope; margin: 0 0 8px; }
+.info-panel b { font-size: 12px; color: #7e8b85; }
+.info-panel > span { font-size: 12px; text-align: right; }
+.document-link { grid-column: 1/-1; justify-content: space-between; }
+
+/* ── Month Nav ─────────────────────────────────── */
+.month-nav { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.month-nav button { background: #fff; border: 1px solid #dce8e2; border-radius: 7px; width: 34px; height: 34px; display: grid; place-items: center; cursor: pointer; color: #46534d; }
+.month-nav button:hover { background: #f1f7f4; }
+.month-nav span { font: 700 16px Manrope; color: #17212b; }
+.dark .month-nav button { background: #1c2a28; border-color: #2b403a; color: #c2d5cc; }
+.dark .month-nav span { color: #edf6f1; }
+
+/* ── Attendance Summary ────────────────────────── */
+.att-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px; }
+.att-summary div { background: #fff; border: 1px solid #e1ebe6; border-radius: 9px; padding: 18px; text-align: center; }
+.att-summary strong { display: block; font: 800 28px Manrope; color: #1e6b50; margin-bottom: 5px; }
+.att-summary span { font-size: 12px; color: #82908a; }
+.dark .att-summary div { background: #1c2a28; border-color: #2b403a; }
+
+/* ── Extra Hours ───────────────────────────────── */
+.extra-hrs { background: #e8f9ef; color: #217a52; font: 700 11px inherit; padding: 3px 8px; border-radius: 12px; }
+
+/* ── Tables ────────────────────────────────────── */
+.table-wrap { overflow: auto; padding: 0; }
+table { width: 100%; border-collapse: collapse; min-width: 620px; }
+th, td { text-align: left; padding: 15px 18px; border-bottom: 1px solid #edf1ef; font-size: 12px; }
+th { color: #89958f; text-transform: uppercase; font-size: 10px; letter-spacing: .06em; background: #f9fbfa; }
+td { color: #46534d; }
+.cell-subtitle { display: block; color: #89958f; font-size: 10px; margin-top: 2px; }
+.dark th, .dark td { border-color: #2b403a; }
+.dark th { background: #1c2a28; }
+.dark td { color: #c2d5cc; }
+
+/* ── Forms ─────────────────────────────────────── */
+.profile-form { display: grid; gap: 14px; margin-top: 14px; }
+.profile-form label { display: grid; gap: 7px; font-size: 12px; font-weight: 700; color: #66736d; }
+.profile-form input { padding: 11px; border: 1px solid #d9e4df; border-radius: 6px; background: #fff; color: #17212b; font: 500 13px inherit; }
+.dark .profile-form input { background: #1c2a28; color: #edf6f1; border-color: #385047; }
+.success-copy { color: #27845e; font-size: 12px; margin: 0; }
+
+/* ── Payroll ───────────────────────────────────── */
+.payroll-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+.payroll-grid h2 { font: 800 26px Manrope; margin: 11px 0 18px; }
+.payroll-lines { display: grid; gap: 10px; }
+.payroll-lines span { display: flex; justify-content: space-between; color: #82908a; font-size: 12px; }
+.payroll-lines b { color: #33423a; }
+
+/* ── Notification List ─────────────────────────── */
+.notification-list { display: grid; gap: 12px; }
+.notification-row { display: flex; justify-content: space-between; gap: 20px; }
+.notification-row h2 { font: 700 17px Manrope; margin: 7px 0; }
+.notification-row p { color: #82908a; font-size: 13px; margin: 0; }
+.notification-row time { white-space: nowrap; color: #89958f; font-size: 11px; }
+
+/* ── Modal ─────────────────────────────────────── */
+.modal-backdrop { position: fixed; inset: 0; background: #00000040; display: grid; place-items: center; z-index: 500; padding: 20px; }
+.modal { background: #fff; border-radius: 12px; box-shadow: 0 24px 64px #00000030; width: min(100%, 500px); max-height: 90vh; overflow-y: auto; animation: modalIn .2s ease; }
+@keyframes modalIn { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
+.dark .modal { background: #1c2a28; }
+.modal-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px 12px; border-bottom: 1px solid #edf1ef; }
+.dark .modal-header { border-color: #2b403a; }
+.modal-header h2 { font: 700 18px Manrope; margin: 0; display: flex; align-items: center; gap: 8px; }
+.modal-header button { background: none; border: none; color: #82908a; cursor: pointer; display: grid; place-items: center; padding: 4px; border-radius: 6px; }
+.modal-header button:hover { background: #f1f7f4; }
+.modal-form { display: grid; gap: 14px; padding: 20px 24px; }
+.modal-form label { display: grid; gap: 7px; font-size: 12px; font-weight: 700; color: #66736d; }
+.modal-form input, .modal-form select, .modal-form textarea { padding: 10px 12px; border: 1px solid #d9e4df; border-radius: 7px; font: 500 13px inherit; background: #fff; color: #17212b; }
+.dark .modal-form input, .dark .modal-form select, .dark .modal-form textarea { background: #243631; color: #edf6f1; border-color: #385047; }
+.modal-form textarea { resize: vertical; }
+.modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.allocation-badge { display: inline-flex; align-items: center; gap: 6px; background: #e6f5ee; color: #1b6048; border-radius: 20px; padding: 6px 14px; font: 700 12px inherit; }
+.modal-footer { display: flex; gap: 10px; justify-content: flex-end; padding-top: 4px; }
+
+/* ── Buttons ───────────────────────────────────── */
+.primary { display: flex; gap: 9px; align-items: center; border: 0; background: #1e6b50; color: white; border-radius: 7px; padding: 11px 16px; font: 700 12px inherit; cursor: pointer; }
+.primary:hover { background: #175940; }
+.primary:disabled { opacity: .6; cursor: wait; }
+.secondary { border: 1px solid #c9d9d1; background: #fff; color: #23694f; border-radius: 7px; padding: 10px 15px; font: 700 12px inherit; cursor: pointer; }
+.secondary:hover { background: #f1f7f4; }
+.dark .secondary { background: #1c2a28; border-color: #385047; color: #c2d5cc; }
+.inline-actions { display: flex; gap: 10px; margin-bottom: 18px; }
+
+/* ── Toast ─────────────────────────────────────── */
+.toast { position: fixed; right: 24px; bottom: 24px; z-index: 600; background: #17392e; color: #edf8f2; padding: 12px 18px; border-radius: 8px; box-shadow: 0 8px 24px #13271c33; font-size: 12px; font-weight: 700; animation: toastIn .25s ease; }
+@keyframes toastIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── Dark global ───────────────────────────────── */
+.dark .metric-grid article, .dark .panel, .dark .att-summary div { background: #1c2a28; border-color: #2b403a; }
+.dark .quick-actions a { background: #284c3f; color: #c7edda; }
+.dark .activity-row { border-color: #2b403a; }
+.dark .event { border-color: #2b403a; }
+.dark .metric-grid strong, .dark .panel h2 { color: #edf6f1; }
+.dark .welcome h1 { color: #edf6f1; }
+
+/* ── Responsive ────────────────────────────────── */
+@media (max-width: 900px) {
+  .metric-grid { grid-template-columns: repeat(3, 1fr); }
+  .bio-grid, .skills-grid { grid-template-columns: 1fr; }
+  .dashboard-grid, .info-grid, .payroll-grid { grid-template-columns: 1fr; }
+  .att-summary { grid-template-columns: repeat(2, 1fr); }
+  .page-heading h1 { font-size: 28px; }
+  .quick-actions { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .metric-grid { grid-template-columns: repeat(2, 1fr); }
+  .modal-row { grid-template-columns: 1fr; }
+  .welcome { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .profile-top-card { flex-direction: column; align-items: flex-start; }
+}

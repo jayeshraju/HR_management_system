@@ -1,0 +1,5 @@
+import { authService } from './auth';
+import type { LeaveRequest } from './employee';
+const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:4000/api';
+async function request<T>(path: string, options?: RequestInit): Promise<T> { const response = await fetch(`${API_URL}${path}`, { ...options, credentials: 'include', headers: { 'Content-Type': 'application/json', ...options?.headers } }); const body = response.status === 204 ? null : await response.json(); if (response.status === 401) { await authService.logout().catch(() => undefined); window.location.assign('/login'); } if (!response.ok) throw new Error(body?.error ?? 'Unable to load leave requests.'); return body as T; }
+export const leaveService = { hrList: (query = '') => request<{ requests: Array<LeaveRequest & { employee: { name: string; employeeId: string } }> }>(`/hr/leave${query}`), decide: (id: string, status: 'Approved' | 'Rejected', hrComment?: string) => request<{ request: LeaveRequest }>(`/hr/leave/${id}`, { method: 'PATCH', body: JSON.stringify({ status, hrComment }) }) };

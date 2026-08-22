@@ -1,0 +1,6 @@
+import type { Response } from 'express';
+import { z } from 'zod';
+import { AuditLog } from '../models/AuditLog.js';
+import type { AuthRequest } from '../middleware/auth.js';
+const filters = z.object({ action: z.string().trim().max(120).optional(), user: z.string().trim().max(80).optional(), entity: z.string().trim().max(80).optional(), from: z.coerce.date().optional(), to: z.coerce.date().optional(), page: z.coerce.number().int().min(1).default(1), limit: z.coerce.number().int().min(1).max(100).default(25) });
+export async function listAuditLogs(req: AuthRequest, res: Response) { const input = filters.parse(req.query); const filter: any = {}; if (input.action) filter.action = { $regex: input.action, $options: 'i' }; if (input.entity) filter.entity = input.entity; if (input.from || input.to) filter.timestamp = { ...(input.from ? { $gte: input.from } : {}), ...(input.to ? { $lte: input.to } : {}) }; if (input.user) filter.actor = input.user; const total = await AuditLog.countDocuments(filter); const logs = await AuditLog.find(filter).populate('actor', 'name employeeId email').sort({ timestamp: -1 }).skip((input.page - 1) * input.limit).limit(input.limit); res.json({ logs, pagination: { page: input.page, limit: input.limit, total, pages: Math.ceil(total / input.limit) } }); }

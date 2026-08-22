@@ -1,0 +1,51 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+
+/* ── Auth ──────────────────────────────────────── */
+.auth-page { min-height: 100vh; display: grid; grid-template-columns: 1.1fr .9fr; background: #f6f8f7; }
+.auth-brand { padding: 44px 9%; background: #17392e; color: #edf8f2; }
+.auth-brand .brand-mark { display: inline-grid; background: #d8f3e8; color: #17392e; vertical-align: middle; }
+.auth-brand > span:last-of-type { font: 800 22px Manrope; margin-left: 11px; }
+.auth-quote { max-width: 440px; margin-top: 30vh; }
+.auth-quote h1 { font: 800 clamp(30px,4vw,54px) Manrope; line-height: 1.08; margin: 14px 0; }
+.auth-quote p { color: #b5d2c4; line-height: 1.7; font-size: 14px; }
+.auth-panel { display: grid; place-items: center; padding: 30px; }
+.auth-form { width: min(100%, 390px); }
+.auth-form h2 { font: 800 30px Manrope; margin: 12px 0 28px; }
+.stack-form { display: grid; gap: 16px; }
+.stack-form label { display: grid; gap: 8px; color: #66736d; font-size: 12px; font-weight: 700; }
+.stack-form label svg { display: inline; margin-right: 5px; vertical-align: -3px; }
+.stack-form input, .stack-form select { border: 1px solid #d9e4df; border-radius: 6px; padding: 12px; background: #fff; color: #17212b; font: 500 13px inherit; outline: none; }
+.stack-form input:focus, .stack-form select:focus { border-color: #4eaa80; box-shadow: 0 0 0 3px #bce9d555; }
+.auth-submit { width: 100%; justify-content: center; }
+.auth-switch { font-size: 12px; color: #89948f; text-align: center; }
+.auth-switch a { color: #1e6b50; font-weight: 700; }
+.form-error { color: #bc4a36; background: #fff0ec; border-radius: 5px; padding: 10px; font-size: 12px; margin: 0; }
+.auth-loading { display: grid; place-items: center; min-height: 100vh; color: #82908a; font-size: 13px; }
+
+/* ── Base ──────────────────────────────────────── */
+:root { font-family: 'DM Sans', sans-serif; color: #17212b; background: #f6f8f7; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+/* ── App container ─────────────────────────────── */
+.app { min-height: 100vh; display: flex; flex-direction: column; background: #f6f8f7; color: #17212b; }
+.app.dark { background: #15201f; color: #edf6f1; }
+
+/* ── Brand ─────────────────────────────────────── */
+.brand-mark { display: grid; place-items: center; width: 32px; height: 32px; background: #17212b; color: #d8f3e8; border-radius: 9px; font: 800 23px Manrope; }
+
+/* ── Panel ─────────────────────────────────────── */
+.panel { background: #fff; border: 1px solid #e1ebe6; border-radius: 9px; padding: 22px; }
+.dark .panel { background: #1c2a28; border-color: #2b403a; }
+
+/* ── Placeholder ───────────────────────────────── */
+.placeholder { min-height: 500px; padding: 24px 0; }
+.placeholder h1 { font: 800 clamp(27px,3vw,40px) Manrope; margin: 9px 0 7px; }
+.placeholder p { color: #82908a; margin: 0; font-size: 14px; }
+.placeholder-line { margin-top: 48px; display: grid; gap: 12px; max-width: 600px; }
+.placeholder-line span { height: 14px; background: #e5eee9; border-radius: 4px; }
+.placeholder-line span:nth-child(2) { width: 78%; }
+.placeholder-line span:nth-child(3) { width: 48%; }
+.dark .placeholder-line span { background: #243631; }
+
+@media (max-width: 640px) { .auth-page { grid-template-columns: 1fr; } .auth-brand { display: none; } }
